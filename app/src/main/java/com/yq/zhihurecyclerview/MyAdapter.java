@@ -18,12 +18,12 @@ import java.util.List;
 public class MyAdapter extends Adapter<MyAdapter.NormalViewHolder> {
 
     private Context mContext;
-    List<NormalBean> data = new ArrayList();
+    List<ItemBean> data = new ArrayList();
 
     public MyAdapter(Context mContext) {
         this.mContext = mContext;
         for (int i = 0; i < 100; i++) {
-            NormalBean normalBean = new NormalBean("中兴禁购事件还在持续发酵。今天中兴通讯再发停牌公告，称将积极、合法寻求被美国禁售的解决方案。虽然中兴只有25%-30%的零部件来自美国供应商，但手机芯片、基带芯片、射频芯片、存储芯片、手机玻璃、光学元件等最为核心的零部件都依赖于美国供应商。因此，这次禁令对中兴的影响非常大。");
+            ItemBean normalBean = new ItemBean("中兴禁购事件还在持续发酵。今天中兴通讯再发停牌公告，称将积极、合法寻求被美国禁售的解决方案。虽然中兴只有25%-30%的零部件来自美国供应商，但手机芯片、基带芯片、射频芯片、存储芯片、手机玻璃、光学元件等最为核心的零部件都依赖于美国供应商。因此，这次禁令对中兴的影响非常大。");
             data.add(normalBean);
             if (i > 0 && i % 6 == 0)
                 normalBean.setShowPic(true);
@@ -32,13 +32,13 @@ public class MyAdapter extends Adapter<MyAdapter.NormalViewHolder> {
 
     @Override
     public NormalViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.item_normal, parent, false);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.list_item, parent, false);
         return new NormalViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(NormalViewHolder holder, int position) {
-        NormalBean bean = data.get(position);
+        ItemBean bean = data.get(position);
         holder.tv_msg.setText(bean.getMsg());
         if (bean.isShowPic()) {
             holder.iv_ad.setVisibility(View.VISIBLE);

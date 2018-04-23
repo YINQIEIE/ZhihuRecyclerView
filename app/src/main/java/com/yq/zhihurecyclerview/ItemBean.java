@@ -4,12 +4,12 @@ package com.yq.zhihurecyclerview;
  * Created by Administrator on 2018/4/20.
  */
 
-public class NormalBean {
+public class ItemBean {
 
     private String msg;
     private boolean showPic;//是否显示图片
 
-    public NormalBean(String msg) {
+    public ItemBean(String msg) {
         this.msg = msg;
     }
 
