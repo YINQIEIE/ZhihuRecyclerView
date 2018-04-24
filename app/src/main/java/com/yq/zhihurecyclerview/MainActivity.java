@@ -27,13 +27,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 int first = mLayoutManager.findFirstVisibleItemPosition();
-                int last = mLayoutManager.findLastCompletelyVisibleItemPosition();
+                int last = mLayoutManager.findLastVisibleItemPosition();
                 for (int i = first; i <= last; i++) {
                     View view = mLayoutManager.findViewByPosition(i);
                     AdImageView iv_ad = view.findViewById(R.id.iv_ad);
                     if (iv_ad.getVisibility() == View.VISIBLE) {
-                        iv_ad.setdY(mLayoutManager.getHeight() - view.getTop(), mLayoutManager.getHeight());
-                        Log.i("imageview", mLayoutManager.getHeight() + ">>>" + view.getTop());
+                        iv_ad.setdY(mLayoutManager.getHeight() - (iv_ad.getTop() + view.getTop()), mLayoutManager.getHeight());
+                        Log.i("imageview", mLayoutManager.getHeight() + ">>>" + (iv_ad.getTop() + view.getTop()));
                     }
                 }
             }
